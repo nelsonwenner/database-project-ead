@@ -1,4 +1,3 @@
-
 -- ################################################## --
 -- #################### FUNCTION #################### --
 -- ################################################## --
@@ -45,7 +44,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* VERIFICA SE ESSE CURSO SOLICITADO ATRAVEZ DO ID EXISTE */
+/* CURSO EXISTENTE */
 CREATE OR REPLACE FUNCTION CURSO_EXISTE(CODIGO_CURSO INT)
 RETURNS INT
 AS $$
@@ -65,7 +64,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* VERIFICA SE ESSE MODULO SOLICITADO ATRAVEZ DO ID EXISTE */
+/* MODULO EXISTENTE */
 CREATE OR REPLACE FUNCTION MODULO_EXISTE(CODIGO_CURSO INT, CODIGO_MODULO INT)
 RETURNS INT
 AS $$
@@ -89,7 +88,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* VERIFICA SE ESSE DISCIPLINA SOLICITADO ATRAVEZ DO ID EXISTE */
+/* DISCIPLINA EXISTENTE */
 CREATE OR REPLACE FUNCTION DISCIPLINA_EXISTENTE(CODIGO_CURSO INT, CODIGO_MODULO INT, CODIGO_DISCIPLINA INT)
 RETURNS INT
 AS $$
@@ -115,7 +114,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* CRIAR DISCIPLINA EM GRANDE QUANTIDADE EM MATRIZ */
+/* CRIAR DISCIPLINA */
 CREATE OR REPLACE FUNCTION MATRIZ_CRIAR_DISCIPLINA(NOME_DISCIPLINA TEXT[][], DESCRICAO_DISCIPLINA TEXT[], COD_MODULO INT, 
 COD_PROFESSOR INT, INDICE_VETOR INT)
 RETURNS VOID
@@ -125,26 +124,22 @@ DECLARE
 	INDICE_DADO INT := 1;
 BEGIN
 	
-	CREATE TEMP TABLE ARRAY_CONTEUDO(DADOS TEXT[][]);
-	INSERT INTO ARRAY_CONTEUDO VALUES(NOME_DISCIPLINA);
-	
 	WHILE CONTADOR = 0 LOOP
-		IF INDICE_DADO <= (SELECT ARRAY_LENGTH(DADOS,2) FROM ARRAY_CONTEUDO) AND (SELECT DADOS[INDICE_VETOR][INDICE_DADO] FROM ARRAY_CONTEUDO) IS NOT NULL THEN
+		IF INDICE_DADO <= ARRAY_LENGTH(NOME_DISCIPLINA, 2) AND NOME_DISCIPLINA[INDICE_VETOR][INDICE_DADO] IS NOT NULL THEN
 			INSERT INTO DISCIPLINA VALUES
-			(DEFAULT,(SELECT DADOS[INDICE_VETOR][INDICE_DADO] FROM ARRAY_CONTEUDO),
+			(DEFAULT, NOME_DISCIPLINA[INDICE_VETOR][INDICE_DADO],
 			 DESCRICAO_DISCIPLINA[INDICE_DADO], COD_MODULO, COD_PROFESSOR);
 			INDICE_DADO := INDICE_DADO + 1;
 		ELSE
 			CONTADOR := CONTADOR + 1;
 		END IF;
 	END LOOP;
-	DISCARD TEMP;
 END
 $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* CRIANDO UMA DISCIPLINA PARA ALGUM MODULO */
+/* CRIANDO UMA DISCIPLINAS PARA ALGUM MODULO */
 CREATE OR REPLACE FUNCTION CRIAR_DISCIPLINAS(COD_CURSO INT, CODIGO_MODULO INT, 
 NOME_DISCIPLINA TEXT[], DESCRICAO_DISCIPLINA TEXT[], COD_PROFESSOR INT)
 RETURNS VOID
@@ -167,7 +162,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* ADICIONANDO VIDEO AULAS AS DISCIPLINAS EM GRANDE QUANTIDADE MATRIZ  */
+/* ADICIONANDO VIDEO AULAS AS DISCIPLINAS  */
 CREATE OR REPLACE FUNCTION ADICIONAR_VIDEO_AULA(COD_CURSO INT, COD_MODULO INT, 
 COD_DISCIPLINA INT, TITULO_VIDEO TEXT[], DESCRICAO TEXT[], DURACAO INT[])
 RETURNS VOID
@@ -188,7 +183,7 @@ $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-/* CRIAR CURSO INSTANCIA VARIAS FUNÇÕES */
+/* CRIAR CURSO */
 CREATE OR REPLACE FUNCTION CRIAR_CURSO(CPF_PROFESSOR TEXT, SENHA_PROFESSOR INT, 
 NOME TEXT, DESCRICAO TEXT, DURACAO_CURSO FLOAT,PRECO FLOAT, NUMERO_MODULOS INT, 
 DURACAO_MODULO INT, DESCRICAO_MODULO TEXT[], NOME_DISCIPLINA TEXT[][], DESCRICAO_DISCIPLINA TEXT[])
@@ -211,3 +206,10 @@ END
 $$ LANGUAGE plpgsql
 
 --------------------------------------------------------------------------------------------------------------------------------
+
+/*
+SELECT * FROM CURSO C_R INNER JOIN MODULO M_D ON
+C_R.COD_CURSO = M_D.COD_CURSO INNER JOIN DISCIPLINA D_C ON
+M_D.COD_MODULO = D_C.COD_MODULO INNER JOIN VIDEO_AULA V_A ON
+D_C.COD_DISCIPLINA = V_A.COD_DISCIPLINA
+*/
