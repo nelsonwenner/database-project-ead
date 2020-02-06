@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/40550247/72228004-81071600-3581-11ea-9972-1cbe906001ed.png" width="120px" />
+</h1>
+
 <h1 align="center">Database project - EAD</h1>
 
 <p align="center">
@@ -14,17 +18,15 @@
     <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
   </a>
   
-  <a href="https://github.com/ofelipegabriel321/PROJETO-BD/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/ofelipegabriel321/PROJETO-PLATAFORMA-EAD?style=social">
+  <a href="https://github.com/nelsondiaas/database-project-ead/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/nelsondiaas/database-project-ead?style=social">
   </a>
 
 </p>
 
 O Projeto Plataforma EAD é um conjunto de comandos SQL que auxilia redes de Ensino à Distância com o fornecimento de um de um modelo básico para a armazenagem e manipulação de dados.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/38538503/73660713-7e2aad00-4677-11ea-8bf0-3fa0db7f0d2e.png" alt="Ensino à Distância" width=720></p>
 
-<p align="right">[créditos da imagem: <a href="https://www.vecteezy.com/vector-art/180345-e-learning-vector" >E-Learning Vector by Vecteezy</a>]</p>
 
 ## Features
 - Suporte de armazenamento, manipulação e utilização de mecanismos de usuários para Alunos e Professores, que possuem diferentes propriedades/possibilidades dentro do sistema;
@@ -556,3 +558,5 @@ O Projeto Plataforma EAD é um conjunto de comandos SQL que auxilia redes de Ens
 
 ## License
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+
+---
