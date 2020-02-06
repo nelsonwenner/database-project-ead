@@ -26,7 +26,8 @@
 
 O Projeto Plataforma EAD é um conjunto de comandos SQL que auxilia redes de Ensino à Distância com o fornecimento de um de um modelo básico para a armazenagem e manipulação de dados.
 
-
+## Require
+  * Postgres
 
 ## Features
 - Suporte de armazenamento, manipulação e utilização de mecanismos de usuários para Alunos e Professores, que possuem diferentes propriedades/possibilidades dentro do sistema;
