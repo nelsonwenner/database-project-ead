@@ -1,4 +1,4 @@
-<h1 align="center">Projeto Plataforma EAD</h1>
+<h1 align="center">Database project - EAD</h1>
 
 <p align="center">
 
@@ -24,7 +24,7 @@ O Projeto Plataforma EAD é um conjunto de comandos SQL que auxilia redes de Ens
 
 <p align="center"><img src="https://user-images.githubusercontent.com/38538503/73660713-7e2aad00-4677-11ea-8bf0-3fa0db7f0d2e.png" alt="Ensino à Distância" width=720></p>
 
-<p align="right">[créditos da imagem: <a href="https://www.vecteezy.com/vector-art/180345-e-learning-vector" >E-Learning Vector by Vecteezy]</a></p>
+<p align="right">[créditos da imagem: <a href="https://www.vecteezy.com/vector-art/180345-e-learning-vector" >E-Learning Vector by Vecteezy</a>]</p>
 
 ## Features
 - Suporte de armazenamento, manipulação e utilização de mecanismos de usuários para Alunos e Professores, que possuem diferentes propriedades/possibilidades dentro do sistema;
@@ -37,11 +37,11 @@ O Projeto Plataforma EAD é um conjunto de comandos SQL que auxilia redes de Ens
 
 ## Project Class Diagram
 
-![Diagrama de Classes - Projeto Plataforma EAD](https://user-images.githubusercontent.com/38538503/73663140-c3e97480-467b-11ea-9798-6517694a0df2.png)
+![Diagrama de Classes - Projeto Plataforma EAD](https://user-images.githubusercontent.com/40550247/73898195-54d07380-4867-11ea-93d0-ac4993f5589b.png)
 
 ## Installation
 
-1. Faça o [download do projeto em ZIP](https://github.com/ofelipegabriel321/PROJETO-PLATAFORMA-EAD/archive/master.zip) ou clone o projeto pelo bash com o comando `$ git clone https://github.com/ofelipegabriel321/PROJETO-PLATAFORMA-EAD.git`.
+1. Faça o [download do projeto em ZIP](https://github.com/nelsondiaas/database-project-ead/archive/master.zip) ou clone o projeto pelo bash com o comando `$ git clone https://github.com/nelsondiaas/database-project-ead`.
 2. Para a instalação de toda a estrutura do banco de dados existem duas opções:
    1. Executar toda parte do arquivo único [main.sql](main.sql) até antes da parte de execuções.
    2. Executar, na seguinte ordem, os aquivos [tables_creation.sql](tables_creation.sql), [auxiliary_functions.sql](auxiliary_functions.sql), [main_functions.sql](main_functions.sql), [user_functions.sql](user_functions.sql), [trigger_functions.sql](trigger_functions.sql), [triggers.sql](triggers.sql) e [groups.sql](groups.sql).
