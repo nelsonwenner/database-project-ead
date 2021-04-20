@@ -1,7 +1,3 @@
-<h1 align="center">
-  <img src="https://user-images.githubusercontent.com/40550247/72228004-81071600-3581-11ea-9972-1cbe906001ed.png" width="120px" />
-</h1>
-
 <h1 align="center">Database project - EAD</h1>
 
 <p align="center">
